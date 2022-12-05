@@ -26,53 +26,53 @@ class schedule : AppCompatActivity() {
         myHelper = AddSchedule.myDBHelper(this)
         sqlDB = myHelper.writableDatabase
 
-        var mondayA = findViewById<TextView>(R.id.mondayA)
-        var tuesdayA = findViewById<TextView>(R.id.tuesdayA)
-        var wednesdayA = findViewById<TextView>(R.id.wednesdayA)
-        var thursdayA = findViewById<TextView>(R.id.thursdayA)
-        var fridayA = findViewById<TextView>(R.id.fridayA)
+        var mondayA = findViewById<AutoResizeTextView>(R.id.mondayA)
+        var tuesdayA = findViewById<AutoResizeTextView>(R.id.tuesdayA)
+        var wednesdayA = findViewById<AutoResizeTextView>(R.id.wednesdayA)
+        var thursdayA = findViewById<AutoResizeTextView>(R.id.thursdayA)
+        var fridayA = findViewById<AutoResizeTextView>(R.id.fridayA)
 
-        var mondayB = findViewById<TextView>(R.id.mondayB)
-        var tuesdayB = findViewById<TextView>(R.id.tuesdayB)
-        var wednesdayB = findViewById<TextView>(R.id.wednesdayB)
-        var thursdayB = findViewById<TextView>(R.id.thursdayB)
-        var fridayB = findViewById<TextView>(R.id.fridayB)
+        var mondayB = findViewById<AutoResizeTextView>(R.id.mondayB)
+        var tuesdayB = findViewById<AutoResizeTextView>(R.id.tuesdayB)
+        var wednesdayB = findViewById<AutoResizeTextView>(R.id.wednesdayB)
+        var thursdayB = findViewById<AutoResizeTextView>(R.id.thursdayB)
+        var fridayB = findViewById<AutoResizeTextView>(R.id.fridayB)
 
-        var mondayC = findViewById<TextView>(R.id.mondayC)
-        var tuesdayC = findViewById<TextView>(R.id.tuesdayC)
-        var wednesdayC = findViewById<TextView>(R.id.wednesdayC)
-        var thursdayC = findViewById<TextView>(R.id.thursdayC)
-        var fridayC = findViewById<TextView>(R.id.fridayC)
+        var mondayC = findViewById<AutoResizeTextView>(R.id.mondayC)
+        var tuesdayC = findViewById<AutoResizeTextView>(R.id.tuesdayC)
+        var wednesdayC = findViewById<AutoResizeTextView>(R.id.wednesdayC)
+        var thursdayC = findViewById<AutoResizeTextView>(R.id.thursdayC)
+        var fridayC = findViewById<AutoResizeTextView>(R.id.fridayC)
 
-        var mondayD = findViewById<TextView>(R.id.mondayD)
-        var tuesdayD = findViewById<TextView>(R.id.tuesdayD)
-        var wednesdayD = findViewById<TextView>(R.id.wednesdayD)
-        var thursdayD = findViewById<TextView>(R.id.thursdayD)
-        var fridayD = findViewById<TextView>(R.id.fridayD)
+        var mondayD = findViewById<AutoResizeTextView>(R.id.mondayD)
+        var tuesdayD = findViewById<AutoResizeTextView>(R.id.tuesdayD)
+        var wednesdayD = findViewById<AutoResizeTextView>(R.id.wednesdayD)
+        var thursdayD = findViewById<AutoResizeTextView>(R.id.thursdayD)
+        var fridayD = findViewById<AutoResizeTextView>(R.id.fridayD)
 
-        var mondayE = findViewById<TextView>(R.id.mondayE)
-        var tuesdayE = findViewById<TextView>(R.id.tuesdayE)
-        var wednesdayE = findViewById<TextView>(R.id.wednesdayE)
-        var thursdayE = findViewById<TextView>(R.id.thursdayE)
-        var fridayE = findViewById<TextView>(R.id.fridayE)
+        var mondayE = findViewById<AutoResizeTextView>(R.id.mondayE)
+        var tuesdayE = findViewById<AutoResizeTextView>(R.id.tuesdayE)
+        var wednesdayE = findViewById<AutoResizeTextView>(R.id.wednesdayE)
+        var thursdayE = findViewById<AutoResizeTextView>(R.id.thursdayE)
+        var fridayE = findViewById<AutoResizeTextView>(R.id.fridayE)
 
-        var mondayF = findViewById<TextView>(R.id.mondayF)
-        var tuesdayF = findViewById<TextView>(R.id.tuesdayF)
-        var wednesdayF = findViewById<TextView>(R.id.wednesdayF)
-        var thursdayF = findViewById<TextView>(R.id.thursdayF)
-        var fridayF = findViewById<TextView>(R.id.fridayF)
+        var mondayF = findViewById<AutoResizeTextView>(R.id.mondayF)
+        var tuesdayF = findViewById<AutoResizeTextView>(R.id.tuesdayF)
+        var wednesdayF = findViewById<AutoResizeTextView>(R.id.wednesdayF)
+        var thursdayF = findViewById<AutoResizeTextView>(R.id.thursdayF)
+        var fridayF = findViewById<AutoResizeTextView>(R.id.fridayF)
 
-        var mondayG = findViewById<TextView>(R.id.mondayG)
-        var tuesdayG = findViewById<TextView>(R.id.tuesdayG)
-        var wednesdayG = findViewById<TextView>(R.id.wednesdayG)
-        var thursdayG = findViewById<TextView>(R.id.thursdayG)
-        var fridayG = findViewById<TextView>(R.id.fridayG)
+        var mondayG = findViewById<AutoResizeTextView>(R.id.mondayG)
+        var tuesdayG = findViewById<AutoResizeTextView>(R.id.tuesdayG)
+        var wednesdayG = findViewById<AutoResizeTextView>(R.id.wednesdayG)
+        var thursdayG = findViewById<AutoResizeTextView>(R.id.thursdayG)
+        var fridayG = findViewById<AutoResizeTextView>(R.id.fridayG)
 
-        var mondayH = findViewById<TextView>(R.id.mondayH)
-        var tuesdayH = findViewById<TextView>(R.id.tuesdayH)
-        var wednesdayH = findViewById<TextView>(R.id.wednesdayH)
-        var thursdayH = findViewById<TextView>(R.id.thursdayH)
-        var fridayH = findViewById<TextView>(R.id.fridayH)
+        var mondayH = findViewById<AutoResizeTextView>(R.id.mondayH)
+        var tuesdayH = findViewById<AutoResizeTextView>(R.id.tuesdayH)
+        var wednesdayH = findViewById<AutoResizeTextView>(R.id.wednesdayH)
+        var thursdayH = findViewById<AutoResizeTextView>(R.id.thursdayH)
+        var fridayH = findViewById<AutoResizeTextView>(R.id.fridayH)
 
 
 
@@ -80,16 +80,16 @@ class schedule : AppCompatActivity() {
         btnadd = findViewById(R.id.btnadd)
         btnre = findViewById(R.id.btnre)
 
-      sqlDB = myHelper.readableDatabase
+    /*  sqlDB = myHelper.readableDatabase
         var cursor: Cursor
         var cname = mutableListOf<String>()
         var croom = mutableListOf<String>()
         var cweek = mutableListOf<String>()
         var ctime =mutableListOf<String>()
-        var recnt =0
-        cursor = sqlDB.rawQuery("SELECT * FROM scheduleDB;", null)
 
         var cnt =0
+        var recnt =0
+        cursor = sqlDB.rawQuery("SELECT * FROM scheduleDB;", null)
         while (cursor.moveToNext()) {
             cname += cursor.getString(0)
             croom += cursor.getString(1)
@@ -269,6 +269,10 @@ class schedule : AppCompatActivity() {
             cnt = 0
         }
 
+*/
+
+
+
 
 
 
@@ -279,7 +283,7 @@ class schedule : AppCompatActivity() {
         }
 
 
-        //여기서 문제
+
         btnre.setOnClickListener {
             sqlDB = myHelper.readableDatabase
             var cursor: Cursor
@@ -472,9 +476,7 @@ class schedule : AppCompatActivity() {
 
 
     }
-    fun read(){
 
-    }
 
 
 }

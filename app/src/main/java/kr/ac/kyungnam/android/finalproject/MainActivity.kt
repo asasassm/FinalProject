@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         var cnt=0
         var check=0
         while(cursor.moveToNext()){
-
             cid += cursor.getString(0)
             cpw += cursor.getString(1)
             cnt=rcnt++
@@ -62,8 +61,10 @@ class MainActivity : AppCompatActivity() {
             for(i in 0..cnt){
                 if(edtid.text.toString() == cid.get(i) && edtpw.text.toString() == cpw.get(i)){
                     check=1
+                    break
                 }else if(edtid.text.toString() == cid.get(i) && edtpw.text.toString() != cpw.get(i)){
                     check=2
+                    break
                 }else {
                     check = 3
                 }

@@ -128,7 +128,7 @@ class AddSchedule : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+// 회원가입 db를 새로 class 해서 만들어야함
     class myDBHelper(context: Context) : SQLiteOpenHelper(context, "scheduleDB", null, 1) {
 
         override fun onCreate(db: SQLiteDatabase) {
@@ -144,5 +144,6 @@ class AddSchedule : AppCompatActivity() {
 
             onCreate(db)
         }
+
     }
 }

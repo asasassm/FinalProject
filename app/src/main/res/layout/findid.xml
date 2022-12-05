@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="아이디 찾기"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="40sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="20sp"
+        android:textSize="30sp"
+        android:layout_margin="10sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:layout_marginBottom="30sp"
+        android:hint="이름을 입력 하시오"
+        android:minHeight="48dp"
+        android:id="@+id/edtfindname"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화 번호"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="20sp"
+        android:layout_margin="10sp"
+        android:textSize="30sp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:layout_marginBottom="30sp"
+        android:hint="전화번호를 입력 하시오"
+        android:minHeight="48dp"
+        android:id="@+id/findphone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="찾으신 아이디 "
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="40sp"
+        android:layout_margin="10sp"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        android:id="@+id/tvfindid"
+
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="asddasda"
+        android:textColor="@color/colorPuple"
+        android:visibility="invisible"
+        android:id="@+id/findid2"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="재 설정할 비밀번호 "
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="40sp"
+        android:layout_margin="10sp"
+        android:textSize="30sp"
+        android:visibility="invisible"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="재설정할 비밀번호"
+        android:textColor="@color/colorPuple"
+        android:visibility="invisible"
+        android:id="@+id/findpw"
+        />
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="60sp"
+        android:layout_margin="20sp"
+        android:id="@+id/btnfindback"
+        android:text="취소"/>
+        <Button
+            android:layout_width="100sp"
+            android:layout_height="60sp"
+            android:layout_margin="20sp"
+            android:id="@+id/btnfind"
+            android:text="취소"/>
+
+        <Button
+            android:layout_width="100sp"
+            android:layout_height="60sp"
+            android:layout_margin="10sp"
+            android:text="비밀번호 재설정"
+            android:id="@+id/btnfindrepw"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+</LinearLayout>

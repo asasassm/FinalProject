@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원 가입"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/design_default_color_primary"
+        android:padding="10sp"/>
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디"
+        android:textSize="20sp"
+        android:padding="5sp"
+        android:id="@+id/tvid"/>
+
+    <EditText
+        android:id="@+id/registid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="ID를 입력하시오 "
+        android:minHeight="48dp"
+        android:padding="5sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"
+        android:textSize="20sp"
+        android:padding="5sp"
+        android:id="@+id/tvpw"/>
+
+    <EditText
+        android:id="@+id/registpw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="P/W를 입력하시오 "
+        android:minHeight="48dp"
+        android:padding="5sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 확인"
+        android:textSize="20sp"
+        android:padding="5sp"
+        android:id="@+id/tvpwch"/>
+
+    <EditText
+        android:id="@+id/registpwch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:hint="P/W를 입력하시오 "
+        android:minHeight="48dp"
+        android:padding="5sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registname"
+            android:hint="이름을 입력하시요(10글자 내외)"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            android:minHeight="48dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주민 번호"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registnum"
+            android:hint="주민 등록번호 앞자리(6)"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            android:minHeight="48dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="집 주소"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registaddress"
+            android:hint="집 주소"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            android:minHeight="48dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="휴대폰 번호"
+            android:textSize="20sp"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registPnum"
+            android:hint="휴대 전화"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            android:minHeight="48dp"
+            />
+
+
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="취소"
+           android:id="@+id/registback"
+           android:layout_weight="1"
+           android:layout_margin="5sp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:id="@+id/registch"
+            android:layout_weight="1"
+            android:layout_margin="5sp"/>
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>

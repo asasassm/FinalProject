@@ -8,13 +8,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import kr.ac.kyungnam.android.finalproject.regist.reDBHelper
 import kr.ac.kyungnam.android.finalproject.AddSchedule.myDBHelper
+
 class MainActivity : AppCompatActivity() {
-    lateinit var myHelper: myDBHelper
+    lateinit var reHelper: reDBHelper
     lateinit var sqlDB : SQLiteDatabase
     lateinit var edtid : EditText
     lateinit var edtpw : EditText
     lateinit var btnfindid : Button
+    lateinit var myHelper : myDBHelper
+    lateinit var sqlDB2 : SQLiteDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,16 +27,18 @@ class MainActivity : AppCompatActivity() {
         btnfindid = findViewById(R.id.btnfindid)
         edtid = findViewById(R.id.edtid)
         edtpw = findViewById(R.id.edtpw)
-        myHelper = myDBHelper(this)
-
+        reHelper = reDBHelper(this)
+        myHelper=myDBHelper(this)
+        sqlDB2 = myHelper.writableDatabase
 
         btnregist.setOnClickListener {
-
             val intent = Intent(applicationContext, regist::class.java)
             startActivity(intent)
         }
         btnlog.setOnClickListener {
-            logcheck()
+
+
+             logcheck()
         }
         btnfindid.setOnClickListener{
             val intent = Intent(applicationContext, findid::class.java)
@@ -40,7 +46,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun logcheck(){
-        sqlDB = myHelper.readableDatabase
+        sqlDB = reHelper.readableDatabase
+        sqlDB2 = myHelper.writableDatabase
         var cursor: Cursor
         cursor = sqlDB.rawQuery("SELECT * FROM register;", null)
         var cid = mutableListOf<String>()
@@ -55,7 +62,11 @@ class MainActivity : AppCompatActivity() {
         }
         cursor.close()
         sqlDB.close()
-        if(edtid.text.toString().isEmpty()&&edtpw.text.toString().isEmpty()){
+        if(cid.get(0).isEmpty()){
+            cid.add("")
+            cpw.add("")
+            Toast.makeText(applicationContext,"회원가입 먼저 해주세요 .",Toast.LENGTH_SHORT).show()
+        }else if(edtid.text.toString().isEmpty()&&edtpw.text.toString().isEmpty()){
             Toast.makeText(applicationContext,"아이디 비밀번호를 입력하시오 .",Toast.LENGTH_SHORT).show()
         }else{
             for(i in 0..cnt){
@@ -70,11 +81,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             cnt = 0
+            val sID = edtid.text.toString()
             when(check){
                 1->{
                     Toast.makeText(applicationContext,"로그인 되었습니다.",Toast.LENGTH_SHORT).show()
-                    val nextintent = Intent(applicationContext,schedule::class.java)
-                    startActivity(nextintent)
+                    sqlDB2.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES ('"+edtid.text.toString()+"','0','0','0','0');")
+                    sqlDB2.close()
+
+                    App.prefs.setString("id",edtid.text.toString())
+                    val intent = Intent(applicationContext,schedule::class.java)
+
+                    startActivity(intent)
                 }
                 2->{
                     Toast.makeText(applicationContext,"아이디/비밀번호가 맞지 않습니다.",Toast.LENGTH_SHORT).show()

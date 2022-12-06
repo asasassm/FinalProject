@@ -163,6 +163,14 @@
             android:id="@+id/registch"
             android:layout_weight="1"
             android:layout_margin="5sp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="리셋"
+            android:id="@+id/registre"
+            android:layout_weight="1"
+            android:layout_margin="5sp"/>
+
     </LinearLayout>
 </ScrollView>
 

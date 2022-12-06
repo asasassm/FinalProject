@@ -18,7 +18,7 @@ class AddSchedule : AppCompatActivity() {
     lateinit var edtRoom : EditText
     lateinit var edtDay : Spinner
     lateinit var edtTime : Spinner
-
+    lateinit var saveID : EditText
     lateinit var myHelper: myDBHelper
 
 
@@ -46,8 +46,10 @@ class AddSchedule : AppCompatActivity() {
         btnreset = findViewById(R.id.btnreset)
         btninsert = findViewById(R.id.btninsert)
         btndelete = findViewById(R.id.btndelete)
+        saveID =findViewById(R.id.saveID)
 
 
+        saveID.setText(App.prefs.getString("id",""))
 
         edtDay.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -96,6 +98,7 @@ class AddSchedule : AppCompatActivity() {
 
             insert()
 
+
         }
         btnreset.setOnClickListener{
             sqlDB = myHelper.writableDatabase
@@ -121,26 +124,26 @@ class AddSchedule : AppCompatActivity() {
         if(edtName.text.toString().isEmpty() || edtRoom.text.toString().isEmpty() || sptextday.text.toString().isEmpty()||sptexttime.text.toString().isEmpty()){
             Toast.makeText(applicationContext,"입력하지않은 정보가 있습니다.",Toast.LENGTH_SHORT).show()
         }else{
-            sqlDB.execSQL("INSERT INTO scheduleDB VALUES('"+ edtName.text.toString()+"','"+edtRoom.text.toString()+"','"+sptextday.text.toString()+"','"+sptexttime.text.toString()+ "');")
+            sqlDB.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES('"+ saveID.text.toString()+"','"+ edtName.text.toString()+"','"+edtRoom.text.toString()+"','"+sptextday.text.toString()+"','"+sptexttime.text.toString()+ "');")
             sqlDB.close()
             Toast.makeText(applicationContext,"저장완료",Toast.LENGTH_SHORT).show()
             val intent = Intent(applicationContext,schedule::class.java)
             startActivity(intent)
         }
     }
-// 회원가입 db를 새로 class 해서 만들어야함
+
     class myDBHelper(context: Context) : SQLiteOpenHelper(context, "scheduleDB", null, 1) {
 
         override fun onCreate(db: SQLiteDatabase) {
 
+            db.execSQL("CREATE TABLE scheduleDB(Inumber INTEGER PRIMARY KEY AUTOINCREMENT,Id CHAR(10) ,ClassName CHAR(20)  ,ClassRoom CHAR(20),ClassDay CHAR(1),ClassTime CHAR(1));")
+           db.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES ('admin','123','0','0','0');")
 
-            db.execSQL("CREATE TABLE scheduleDB(ClassName CHAR(20) PRIMARY KEY ,ClassRoom CHAR(20),ClassDay CHAR(1),ClassTime CHAR(1));")
-            db.execSQL("CREATE TABLE register(ID CHAR(20) PRIMARY KEY ,Password CHAR(20),Name CHAR(10),Number CHAR(14),Address CHAR(50),PhoneNumber CHAR(14));")
         }
 
         override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
             db.execSQL("DROP TABLE IF EXISTS scheduleDB")
-            db.execSQL("DROP TABLE IF EXISTS register")
+
 
             onCreate(db)
         }

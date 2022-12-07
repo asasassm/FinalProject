@@ -12,16 +12,14 @@
         android:padding="50dp"
 
         >
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ID"
             android:layout_marginBottom="5sp"
             android:id="@+id/saveID"
-            android:textStyle="bold"
-            android:textColor="@color/colorOrange"
-            android:visibility="visible"
-         ></EditText>
+            android:visibility="invisible"
+         ></TextView>
 
         <TextView
             android:layout_width="match_parent"

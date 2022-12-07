@@ -2,6 +2,7 @@ package kr.ac.kyungnam.android.finalproject
 
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.Color
@@ -67,26 +68,57 @@ class regist : AppCompatActivity() {
 
 
 
-
-
-
     }
     fun registcheck(){
         sqlDB = reHelper.writableDatabase
+        var re=idcheck()
         if(registid.text.toString().isEmpty() || registpw.text.toString().isEmpty() || registname.text.toString().isEmpty()||registnum.text.toString().isEmpty() || registaddress.text.toString().isEmpty()||registpnum.text.toString().isEmpty()){
             Toast.makeText(applicationContext,"입력하지않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
         }else if (registpw.text.toString() != registpwch.text.toString()){
             Toast.makeText(applicationContext,"비빌먼호가 일치 하지 않습니다.", Toast.LENGTH_SHORT).show()
             registpwch.setTextColor(Color.parseColor("#FFFFFF"))
         }else{
-            sqlDB.execSQL("INSERT INTO register VALUES('"+ registid.text.toString()+"','"+registpw.text.toString()+"','"+registname.text.toString()+"','"+registnum.text.toString()+ "','"+registaddress.text.toString()+"','"+registpnum.text.toString()+"');")
-            sqlDB.close()
-            Toast.makeText(applicationContext,"저장완료", Toast.LENGTH_SHORT).show()
-            val intent = Intent(applicationContext,MainActivity::class.java)
-            startActivity(intent)
+            when(re){
+                0->{
+                    sqlDB.execSQL("INSERT INTO register VALUES('"+ registid.text.toString()+"','"+registpw.text.toString()+"','"+registname.text.toString()+"','"+registnum.text.toString()+ "','"+registaddress.text.toString()+"','"+registpnum.text.toString()+"');")
+                    sqlDB.close()
+                    Toast.makeText(applicationContext,"저장완료", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(applicationContext,MainActivity::class.java)
+                    startActivity(intent)
+                }
+                1->Toast.makeText(applicationContext,"이미 사용 중인 ID 입니다.",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 
+    }
+    fun idcheck() : Int{
+        sqlDB = reHelper.readableDatabase
+        var cursor: Cursor
+        cursor = sqlDB.rawQuery("SELECT * FROM register;", null)
+        var rid = mutableListOf<String>()
+        var re = 0
+        var rcnt = 0
+        var cnt = 0
+
+        while (cursor.moveToNext()) {
+            rid += cursor.getString(0)
+
+            cnt = rcnt++
+        }
+        cursor.close()
+        sqlDB.close()
+        for(i in 0 ..cnt){
+            if(rid.get(i) == registid.text.toString()){
+                re=1
+                break
+            }else{
+                re =0
+            }
+        }
+        return re
     }
     class reDBHelper(context: Context) : SQLiteOpenHelper(context, "register", null, 1) {
 

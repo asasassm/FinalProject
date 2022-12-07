@@ -689,8 +689,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="알람"
-        android:id="@+id/btnal"
+        android:text="로그아웃"
+        android:id="@+id/btnlogout"
         android:layout_weight="1"
         android:layout_margin="5dp"
         />

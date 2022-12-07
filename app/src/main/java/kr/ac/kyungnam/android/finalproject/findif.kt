@@ -80,7 +80,7 @@ class findid : AppCompatActivity() {
         var fid = mutableListOf<String>()
         var rcnt = 0
         var cnt = 0
-        var check = 0
+
         while (cursor.moveToNext()) {
             fid += cursor.getString(0)
             fname += cursor.getString(2)
@@ -90,7 +90,6 @@ class findid : AppCompatActivity() {
         cursor.close()
         sqlDB.close()
         var index = 0
-        var instate = 0
         var state = 0
 
         for (i in 0..cnt) {

@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,32 +94,26 @@
 
             android:layout_marginBottom="5sp"
             android:id="@+id/sptexttime"></TextView>
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <Button
             android:id="@+id/btnback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="취소" />
         <Button
             android:id="@+id/btnreset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="초기화" />
         <Button
             android:id="@+id/btndelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="삭제" />
 
         <Button
@@ -123,12 +121,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="확인" />
 
-
-
     </LinearLayout>
+   </ScrollView>
+
 
 
 </LinearLayout>

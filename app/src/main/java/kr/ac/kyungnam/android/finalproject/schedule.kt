@@ -146,8 +146,10 @@ class schedule : AppCompatActivity() {
         btnre.visibility = View.VISIBLE
 
         btnre.setOnClickListener {
-
-
+            sqlDB = myHelper.writableDatabase
+            myHelper.onUpgrade(sqlDB,1,2)
+            sqlDB.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES ('"+tvtemp.text.toString()+"','N','N','N','N');")
+            sqlDB.close()
         }
         btnlogout.setOnClickListener { view ->
             var dialog = AlertDialog.Builder(this)

@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10">
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,47 +106,35 @@
         android:id="@+id/resetpw"
         />
 
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:id="@+id/btnfindback"
+           android:text="취소"/>
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/btnfind"
+           android:layout_weight="1"
+           android:text="확인"/>
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="비밀번호 재설정"
+           android:id="@+id/btnfindrepw"
+           android:layout_weight="1"
+           android:visibility="invisible"/>
+       <Button
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="비밀번호 확인"
+           android:id="@+id/btnfindrepwch"
+           android:layout_weight="1"
+           android:visibility="invisible"/>
+   </LinearLayout>
 
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="4">
-
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/btnfindback"
-        android:text="취소"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnfind"
-            android:layout_weight="1"
-            android:text="확인"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="비밀번호 재설정"
-            android:id="@+id/btnfindrepw"
-            android:layout_weight="1"
-            android:visibility="invisible"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="비밀번호 확인"
-            android:id="@+id/btnfindrepwch"
-            android:layout_weight="1"
-            android:visibility="invisible"/>
-
-
-    </LinearLayout>
+  </ScrollView>
 
 
 </LinearLayout>

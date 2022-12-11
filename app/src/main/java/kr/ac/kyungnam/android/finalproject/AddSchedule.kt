@@ -98,8 +98,6 @@ class AddSchedule : AppCompatActivity() {
 
             insert()
 
-
-
         }
         btnreset.setOnClickListener{
             sqlDB = myHelper.writableDatabase

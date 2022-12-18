@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnlog.setOnClickListener {
-
-
              logcheck()
         }
         btnfindid.setOnClickListener{
@@ -85,12 +83,10 @@ class MainActivity : AppCompatActivity() {
             when(check){
                 1->{
                     Toast.makeText(applicationContext,"로그인 되었습니다.",Toast.LENGTH_SHORT).show()
-                    sqlDB2.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES ('"+edtid.text.toString()+"','N','N','N','N');")
-                    sqlDB2.close()
-
+                  /* sqlDB2.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES ('"+edtid.text.toString()+"','N','N','N','N');")
+                    sqlDB2.close()*/
                     App.prefs.setString("id",edtid.text.toString())
                     val intent = Intent(applicationContext,schedule::class.java)
-
                     startActivity(intent)
                 }
                 2->{
@@ -100,7 +96,6 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,"존재 하지 않는 아이디입니다.",Toast.LENGTH_SHORT).show()
                 }
                 else->  Toast.makeText(applicationContext,"오류.",Toast.LENGTH_SHORT).show()
-
             }
             check=0
 

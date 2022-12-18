@@ -108,13 +108,6 @@
             android:layout_weight="1"
             android:layout_margin="5sp"
             android:text="초기화" />
-        <Button
-            android:id="@+id/btndelete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5sp"
-            android:text="삭제" />
 
         <Button
             android:id="@+id/btninsert"

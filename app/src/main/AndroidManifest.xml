@@ -17,6 +17,7 @@
         <activity android:name=".schedule" android:label="스케줄 "/>
         <activity android:name=".regist" android:label=" 회원가입"/>
         <activity android:name=".findid" android:label=" ID찾기"/>
+        <activity android:name=".delete" android:label=" 삭제"/>
 
         <activity
             android:name=".MainActivity"

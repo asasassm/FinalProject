@@ -21,7 +21,7 @@ class schedule : AppCompatActivity() {
     lateinit var myHelper: myDBHelper
     lateinit var sqlDB: SQLiteDatabase
     lateinit var btnadd: Button
-    lateinit var btnre: Button
+    lateinit var btndel2 : Button
     lateinit var btnlogout: Button
 
     lateinit var mondayA: AutoResizeTextView
@@ -130,38 +130,28 @@ class schedule : AppCompatActivity() {
         tvtemp = findViewById(R.id.tvtemp)
 
         btnadd = findViewById(R.id.btnadd)
-        btnre = findViewById(R.id.btnre)
+        btndel2 = findViewById(R.id.btndel2)
         btnlogout = findViewById(R.id.btnlogout)
 
-
         tvtemp.setText(App.prefs.getString("id", ""))
-
-
         read()
         btnadd.setOnClickListener {
             val intent = Intent(applicationContext, AddSchedule::class.java)
             startActivity(intent)
-
         }
-        btnre.visibility = View.VISIBLE
-
-        btnre.setOnClickListener {
-            sqlDB = myHelper.writableDatabase
-            myHelper.onUpgrade(sqlDB,1,2)
-            sqlDB.execSQL("INSERT INTO scheduleDB (Id,ClassName,ClassRoom,ClassDay,ClassTime) VALUES ('"+tvtemp.text.toString()+"','N','N','N','N');")
-            sqlDB.close()
+        btndel2.setOnClickListener{
+            val intent = Intent(applicationContext,delete::class.java)
+            startActivity(intent)
         }
         btnlogout.setOnClickListener { view ->
             var dialog = AlertDialog.Builder(this)
             dialog.setTitle("로그아웃을 하시겠습니까?")
             dialog.setMessage("저희 Daily를 이용해주셔서 감사합니다.")
-
             fun toast_p() {
                 Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
-
             var dialog_listener = object : DialogInterface.OnClickListener {
                 override fun onClick(dialog: DialogInterface?, which: Int) {
                     when (which) {
@@ -174,10 +164,7 @@ class schedule : AppCompatActivity() {
             dialog.setNegativeButton("NO", null)
             dialog.show()
         }
-
-
     }
-
     fun read() {
         sqlDB = myHelper.readableDatabase
         var cursor: Cursor
@@ -187,10 +174,9 @@ class schedule : AppCompatActivity() {
         var cweek = mutableListOf<String>()
         var ctime = mutableListOf<String>()
         var cidnum = mutableListOf<Int>()
-
         var cnt = 0
         var recnt = 0
-
+        var nullch=0
         cursor = sqlDB.rawQuery(
             "SELECT * FROM scheduleDB WHERE Id = '" + tvtemp.text.toString() + "';",
             null
@@ -202,11 +188,12 @@ class schedule : AppCompatActivity() {
             cweek += cursor.getString(4)
             ctime += cursor.getString(5)
             recnt = cnt++
+            nullch++
         }
         cursor.close()
         sqlDB.close()
 
-     if (cname.get(0) =="N") {
+     if (nullch==0) {
             Toast.makeText(applicationContext,"시간표를 추가 하세요",Toast.LENGTH_SHORT).show()
         }   else {
             for (i in 0..recnt) {

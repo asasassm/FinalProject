@@ -67,10 +67,7 @@ class findid : AppCompatActivity() {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         }
-
-
     }
-
     fun findmyid() {
         sqlDB = reHelper.readableDatabase
         var cursor: Cursor
@@ -113,12 +110,8 @@ class findid : AppCompatActivity() {
             }
         }
         cnt = 0
-
         index = 0
-
-
     }
-
     fun updateregister() {
         sqlDB = reHelper.writableDatabase
         if (findid2.text.toString().isEmpty()) {

@@ -15,15 +15,11 @@
     android:orientation="horizontal"
     android:layout_weight="5">
 
-
-
     <TableLayout
         android:id="@+id/timetable"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
-
         <TableRow>
-
             <TextView
                 android:layout_height="40dp"
                 android:text=""
@@ -118,7 +114,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
         <TableLayout
             android:id="@+id/weektable"
             android:layout_width="wrap_content"
@@ -183,7 +178,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
-                    android:onClick="ClickMethod"
                     android:gravity="center"
                     android:text=""
                     android:textColor="@color/colorText"
@@ -195,7 +189,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
-                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp" />
@@ -206,7 +199,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
                     android:gravity="center"
-                    android:onClick="ClickMethod"
                     android:text=""
                     android:textColor="@color/colorText"
                     android:textSize="8sp"
@@ -224,7 +216,6 @@
 
                 <kr.ac.kyungnam.android.finalproject.AutoResizeTextView
                     android:id="@+id/fridayA"
-
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
@@ -239,7 +230,6 @@
 
                 <kr.ac.kyungnam.android.finalproject.AutoResizeTextView
                     android:id="@+id/mondayB"
-
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
@@ -260,7 +250,6 @@
 
                 <kr.ac.kyungnam.android.finalproject.AutoResizeTextView
                     android:id="@+id/wednesdayB"
-
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
@@ -271,7 +260,6 @@
 
                 <kr.ac.kyungnam.android.finalproject.AutoResizeTextView
                     android:id="@+id/thursdayB"
-
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
@@ -282,7 +270,6 @@
 
                 <kr.ac.kyungnam.android.finalproject.AutoResizeTextView
                     android:id="@+id/fridayB"
-
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/cell_shape_schedule"
@@ -670,29 +657,27 @@
     android:layout_weight="1">
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="50sp"
         android:text="추가"
         android:id="@+id/btnadd"
         android:layout_weight="1"
-        android:layout_margin="5dp"
+        android:layout_margin="5sp"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:text="삭제"
+        android:layout_weight="1"
+        android:layout_margin="5sp"
+        android:id="@+id/btndel2"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="초기화"
-        android:id="@+id/btnre"
-        android:layout_weight="1"
-        android:layout_margin="5dp"
-        android:visibility="invisible"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="50sp"
         android:text="로그아웃"
         android:id="@+id/btnlogout"
         android:layout_weight="1"
-        android:layout_margin="5dp"
+        android:layout_margin="5sp"
         />
 </LinearLayout>
 

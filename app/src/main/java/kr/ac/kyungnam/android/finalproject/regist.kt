@@ -33,10 +33,6 @@ class regist : AppCompatActivity() {
         setContentView(R.layout.regist)
         reHelper = reDBHelper(this)
 
-
-
-
-
         registid = findViewById(R.id.registid)
          registpw = findViewById(R.id.registpw)
          registpwch = findViewById(R.id.registpwch)
@@ -48,8 +44,6 @@ class regist : AppCompatActivity() {
         btnch = findViewById (R.id.registch)
         var registre = findViewById<Button>(R.id.registre)
 
-
-
         btnback.setOnClickListener{
             val intent = Intent(applicationContext,MainActivity::class.java)
             startActivity(intent)
@@ -58,15 +52,11 @@ class regist : AppCompatActivity() {
            registcheck()
 
         }
-
         registre.setOnClickListener{
            sqlDB = reHelper.writableDatabase
             reHelper.onUpgrade(sqlDB,1,2)
             sqlDB.close()
-
         }
-
-
 
     }
     fun registcheck(){
@@ -80,6 +70,7 @@ class regist : AppCompatActivity() {
         }else{
             when(re){
                 0->{
+                    sqlDB = reHelper.writableDatabase
                     sqlDB.execSQL("INSERT INTO register VALUES('"+ registid.text.toString()+"','"+registpw.text.toString()+"','"+registname.text.toString()+"','"+registnum.text.toString()+ "','"+registaddress.text.toString()+"','"+registpnum.text.toString()+"');")
                     sqlDB.close()
                     Toast.makeText(applicationContext,"저장완료", Toast.LENGTH_SHORT).show()
@@ -88,11 +79,7 @@ class regist : AppCompatActivity() {
                 }
                 1->Toast.makeText(applicationContext,"이미 사용 중인 ID 입니다.",Toast.LENGTH_SHORT).show()
             }
-
-
         }
-
-
     }
     fun idcheck() : Int{
         sqlDB = reHelper.readableDatabase
@@ -102,10 +89,8 @@ class regist : AppCompatActivity() {
         var re = 0
         var rcnt = 0
         var cnt = 0
-
         while (cursor.moveToNext()) {
             rid += cursor.getString(0)
-
             cnt = rcnt++
         }
         cursor.close()
@@ -121,20 +106,14 @@ class regist : AppCompatActivity() {
         return re
     }
     class reDBHelper(context: Context) : SQLiteOpenHelper(context, "register", null, 1) {
-
         override fun onCreate(db: SQLiteDatabase) {
             db.execSQL("CREATE TABLE register(ID CHAR(20) PRIMARY KEY ,Password CHAR(20),Name CHAR(10),Number CHAR(14),Address CHAR(50),PhoneNumber CHAR(14));")
             db.execSQL("INSERT INTO register VALUES ('admin','123','admin','0','0','0');")
-
         }
-
         override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
             db.execSQL("DROP TABLE IF EXISTS register")
             onCreate(db)
         }
-
     }
-
-
 }
 
